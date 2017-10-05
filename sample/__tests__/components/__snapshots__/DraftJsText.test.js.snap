@@ -4,6 +4,7 @@ exports[`extends a style with a customStyle 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
+  disabled={false}
   ellipsizeMode="tail"
   style={
     Array [
@@ -24,10 +25,31 @@ exports[`extends a style with a customStyle 1`] = `
 </Text>
 `;
 
+exports[`extends a style with a customStyle from another type 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={true}
+  disabled={false}
+  ellipsizeMode="tail"
+  style={
+    Array [
+      Object {
+        "fontSize": 14,
+        "fontWeight": "normal",
+      },
+      undefined,
+    ]
+  }
+>
+  Hello World
+</Text>
+`;
+
 exports[`renders correctly with a text 1`] = `
 <Text
   accessible={true}
   allowFontScaling={true}
+  disabled={false}
   ellipsizeMode="tail"
   style={
     Array [

@@ -14,7 +14,7 @@ import {
   View,
 } from 'react-native';
 
-import RNDraftJS from '../react-native-draftjs-render';
+import getRNDraftJSBlocks from '../react-native-draftjs-render';
 
 import data from './resourceMock.json';
 
@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 16,
-    backgroundColor: '#F5FCFF',
+    marginTop: 32,
+    backgroundColor: '#f4f4f4',
   },
 });
 
@@ -107,13 +108,16 @@ const atomicHandler = (item: Object): any => {
 };
 
 export default function App(): any {
+  const params = {
+    contentState: data,
+    customStyles,
+    atomicHandler,
+  };
+  const blocks = getRNDraftJSBlocks(params);
+
   return (
     <ScrollView style={styles.container}>
-      <RNDraftJS
-        contentState={data}
-        customStyles={customStyles}
-        atomicHandler={atomicHandler}
-      />
+      {blocks}
     </ScrollView>
   );
 }

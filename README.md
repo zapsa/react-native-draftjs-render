@@ -3,6 +3,12 @@
 [![Build Status](https://travis-ci.org/globocom/react-native-draftjs-render.svg?branch=master)](https://travis-ci.org/globocom/react-native-draftjs-render)
 [![Coverage Status](https://coveralls.io/repos/github/globocom/react-native-draftjs-render/badge.svg)](https://coveralls.io/github/globocom/react-native-draftjs-render)
 [![npm version](https://badge.fury.io/js/react-native-draftjs-render.svg)](https://www.npmjs.com/package/react-native-draftjs-render)
+[![license](https://img.shields.io/npm/l/react-native-draftjs-render.svg)](https://github.com/globocom/react-native-draftjs-render/blob/master/LICENSE)
+
+[![bitHound Overall Score](https://www.bithound.io/github/globocom/react-native-draftjs-render/badges/score.svg)](https://www.bithound.io/github/globocom/react-native-draftjs-render)
+[![bitHound Dependencies](https://www.bithound.io/github/globocom/react-native-draftjs-render/badges/dependencies.svg)](https://www.bithound.io/github/globocom/react-native-draftjs-render/master/dependencies/npm)
+[![bitHound Code](https://www.bithound.io/github/globocom/react-native-draftjs-render/badges/code.svg)](https://www.bithound.io/github/globocom/react-native-draftjs-render)
+
 
 A React Native render for [Draft.js](http://draftjs.org/) model.
 
@@ -20,7 +26,7 @@ yarn add react-native-draftjs-render
 ```
 
 ### Using
-Just import and insert your Draft.js model on RNDraftJSRender:
+Just import and insert your Draft.js model on getRNDraftJSBlocks:
 
 ```js
 import React from 'react';
@@ -28,14 +34,15 @@ import {
   AppRegistry,
 } from 'react-native';
 
-import RNDraftJSRender from 'react-native-draftjs-render';
+import getRNDraftJSBlocks from 'react-native-draftjs-render';
 import contentState from 'DraftJs/contentState';
 
-const MyApp = () => (
-  <RNDraftJSRender
-    contentState={contentState}
-  />
-);
+const MyApp = () => {
+  const blocks = getRNDraftJSBlocks({ contentState });
+  return (
+    <View style={{ flex: 1 }}>{blocks}</View>
+  );
+};
 
 AppRegistry.registerComponent('MyApp', () => MyApp);
 ```
@@ -52,7 +59,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import RNDraftJSRender from 'react-native-draftjs-render';
+import getRNDraftJSBlocks from 'react-native-draftjs-render';
 import contentState from 'DraftJs/contentState';
 
 const styles = StyleSheet.flatten({
@@ -66,19 +73,19 @@ const styles = StyleSheet.flatten({
   },
 });
 
-const MyApp = () => (
-  <RNDraftJSRender
-    contentState={contentState}
-    customStyles={styles}
-  />
-);
+const MyApp = () => {
+  const blocks = getRNDraftJSBlocks({ contentState, customStyles: styles });
+  return (
+    <View style={{ flex: 1 }}>{blocks}</View>
+  );
+};
 
 AppRegistry.registerComponent('MyApp', () => MyApp);
 ```
 
 See more at **[Custom Styles](https://github.com/globocom/react-native-draftjs-render/blob/master/docs/CustomStyles.md)** documentation.
 
-## Developing
+## Contributing
 
 To develop using example react-native project:
 

@@ -11,13 +11,13 @@ import 'react-native';
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import DraftJsText from '../../../src/components/DraftJsText';
+import UnorderedListItem from '../../../src/components/UnorderedListItem';
 
-it('renders correctly with a text', () => {
+it('renders correctly with a unordered-list-item', () => {
   const text = 'Hello World';
   const tree = renderer.create(
-    <DraftJsText
-      type="paragraph"
+    <UnorderedListItem
+      type="unordered-list-item"
       text={text}
       inlineStyles={[]}
       entityRanges={[]}
@@ -27,9 +27,9 @@ it('renders correctly with a text', () => {
   expect(tree).toMatchSnapshot();
 });
 
-it('renders null without a text', () => {
+it('renders null without a unordered-list-item', () => {
   const tree = renderer.create(
-    <DraftJsText />,
+    <UnorderedListItem />,
   ).toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -37,7 +37,7 @@ it('renders null without a text', () => {
 it('extends a style with a customStyle', () => {
   const text = 'Hello World';
   const customStyles = {
-    paragraph: {
+    'unordered-list-item': {
       fontSize: 18,
       fontWeight: 'normal',
       letterSpacing: -0.75,
@@ -45,32 +45,8 @@ it('extends a style with a customStyle', () => {
     },
   };
   const tree = renderer.create(
-    <DraftJsText
-      type="paragraph"
-      text={text}
-      customStyles={customStyles}
-      inlineStyles={[]}
-      entityRanges={[]}
-      entityMap={{}}
-      navigate={() => null}
-    />,
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-it('extends a style with a customStyle from another type', () => {
-  const text = 'Hello World';
-  const customStyles = {
-    blockquote: {
-      fontSize: 18,
-      fontWeight: 'normal',
-      letterSpacing: -0.75,
-      lineHeight: 32,
-    },
-  };
-  const tree = renderer.create(
-    <DraftJsText
-      type="paragraph"
+    <UnorderedListItem
+      type="unordered-list-item"
       text={text}
       customStyles={customStyles}
       inlineStyles={[]}

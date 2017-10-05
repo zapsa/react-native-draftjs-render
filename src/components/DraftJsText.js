@@ -14,29 +14,20 @@ import {
 import loadAttributes from '../loadAttributes';
 
 import defaultStyles from './defaultStyles';
-
-type DraftJsTextPropsType = {
-  type: string,
-  text: string,
-  customStyles?: Object,
-  inlineStyles: Array<Object>,
-  entityRanges: Array<Object>,
-  entityMap: Object,
-  navigate?: Function,
-};
+import type { DraftJsTextPropsType } from './defaultProps';
 
 const DraftJsText = (props: DraftJsTextPropsType): any => {
   let textElements = props.text;
 
   if (textElements) {
-    textElements = loadAttributes(
-      props.text,
-      props.customStyles,
-      props.inlineStyles,
-      props.entityRanges,
-      props.entityMap,
-      props.navigate,
-    );
+    textElements = loadAttributes({
+      text: props.text,
+      customStyles: props.customStyles,
+      inlineStyles: props.inlineStyles,
+      entityRanges: props.entityRanges,
+      entityMap: props.entityMap,
+      navigate: props.navigate,
+    });
 
     const customStyle = props.customStyles ? props.customStyles[props.type] : undefined;
 
@@ -45,12 +36,6 @@ const DraftJsText = (props: DraftJsTextPropsType): any => {
     >{textElements}</Text>);
   }
   return null;
-};
-
-DraftJsText.propTypes = {
-  text: React.PropTypes.string,
-  customStyles: React.PropTypes.any,
-  inlineStyles: React.PropTypes.array,
 };
 
 DraftJsText.defaultProps = {
