@@ -25,7 +25,7 @@ export const getItemOnPress = (
   if (item.key !== undefined && entityMap && !isEmptyObject(entityMap)) {
     // $$FlowFixMe entityMap is valid here
     return () => {
-      navigate(entityMap[item.key].data.linkUrl);
+      navigate(entityMap[item.key]);
     };
   }
   return undefined;
