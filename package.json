@@ -1,11 +1,10 @@
 {
   "name": "@zapsa/react-native-draftjs-render",
   "description": "React Native render for draft.js model",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "scripts": {
     "test": "npm run linter && npm run flow && npm run coverage",
-    "test-coveralls":
-      "npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test-coveralls": "npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "coverage": "jest --coverage",
     "test-reset": "jest --updateSnapshot",
     "linter": "eslint .",
@@ -14,7 +13,10 @@
     "flow-stop": "flow stop"
   },
   "main": "index.js",
-  "keywords": ["react-native", "draft-js"],
+  "keywords": [
+    "react-native",
+    "draft-js"
+  ],
   "author": "globo.com",
   "license": "MIT",
   "peerDependencies": {
@@ -45,11 +47,22 @@
   },
   "jest": {
     "preset": "react-native",
-    "modulePathIgnorePatterns": ["/sample/node_modules/"],
+    "modulePathIgnorePatterns": [
+      "/sample/node_modules/"
+    ],
     "clearMocks": true,
     "coverageDirectory": "./coverage/",
-    "coverageReporters": ["lcov", "text"],
-    "coveragePathIgnorePatterns": ["/node_modules/", "/sample/", "/coverage/"],
-    "collectCoverageFrom": ["src/**/*.{js,jsx}"]
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/sample/",
+      "/coverage/"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ]
   }
 }
