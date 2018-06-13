@@ -1,10 +1,11 @@
 {
   "name": "@zapsa/react-native-draftjs-render",
   "description": "React Native render for draft.js model",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "scripts": {
     "test": "npm run linter && npm run flow && npm run coverage",
-    "test-coveralls": "npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test-coveralls":
+      "npm test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
     "coverage": "jest --coverage",
     "test-reset": "jest --updateSnapshot",
     "linter": "eslint .",
@@ -13,56 +14,42 @@
     "flow-stop": "flow stop"
   },
   "main": "index.js",
-  "keywords": [
-    "react-native",
-    "draft-js"
-  ],
+  "keywords": ["react-native", "draft-js"],
   "author": "globo.com",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.0.0-alpha.12",
-    "react-native": "^0.47.2"
+    "react": "^16.2.0",
+    "react-native": ">=0.49.3"
   },
   "dependencies": {
-    "stringz": "0.2.3"
+    "stringz": "1.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "babel-jest": "^20.0.3",
-    "babel-preset-react-native": "^2.1.0",
-    "coveralls": "^2.12.0",
-    "eslint": "^4.4.1",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-flowtype": "^2.35.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.2.1",
-    "eslint-plugin-react-native": "^3.0.1",
-    "flow-bin": "^0.53.1",
-    "jest": "^20.0.4",
-    "react": "^16.0.0-alpha.12",
-    "react-dom": "^16.0.0-alpha.12",
-    "react-native": "^0.47.2",
-    "react-test-renderer": "16.0.0-alpha.12"
+    "babel-eslint": "8.2.2",
+    "babel-jest": "22.4.3",
+    "babel-preset-react-native": "4.0.0",
+    "coveralls": "3.0.0",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb": "16.1.0",
+    "eslint-plugin-flowtype": "2.46.1",
+    "eslint-plugin-import": "2.10.0",
+    "eslint-plugin-jsx-a11y": "6.0.3",
+    "eslint-plugin-react": "7.7.0",
+    "eslint-plugin-react-native": "3.2.1",
+    "flow-bin": "0.69.0",
+    "jest": "22.4.3",
+    "react": "16.3.1",
+    "react-dom": "16.3.1",
+    "react-native": "0.55.2",
+    "react-test-renderer": "16.3.1"
   },
   "jest": {
     "preset": "react-native",
-    "modulePathIgnorePatterns": [
-      "/sample/node_modules/"
-    ],
+    "modulePathIgnorePatterns": ["/sample/node_modules/"],
     "clearMocks": true,
     "coverageDirectory": "./coverage/",
-    "coverageReporters": [
-      "lcov",
-      "text"
-    ],
-    "coveragePathIgnorePatterns": [
-      "/node_modules/",
-      "/sample/",
-      "/coverage/"
-    ],
-    "collectCoverageFrom": [
-      "**/*.{js,jsx}"
-    ]
+    "coverageReporters": ["lcov", "text"],
+    "coveragePathIgnorePatterns": ["/node_modules/", "/sample/", "/coverage/"],
+    "collectCoverageFrom": ["src/**/*.{js,jsx}"]
   }
 }

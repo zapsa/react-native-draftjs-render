@@ -15,7 +15,7 @@ import {
 
 import DraftJsText from '../components/DraftJsText';
 
-import type { OrderedListItemPropsType } from './defaultProps';
+import type { OrderedListItemPropsType } from './types';
 
 const styles = StyleSheet.create({
   orderedListItemContainer: {
@@ -32,8 +32,12 @@ const styles = StyleSheet.create({
 });
 
 const OrderedListItem = (props: OrderedListItemPropsType): any => {
-  const number = props.counter;
-  const separator = props.separator;
+  const {
+    counter,
+    separator,
+  } = props;
+
+
   const orderedListItemCustomStyleContainer = props.customStyles ?
     props.customStyles.orderedListItemContainer :
     undefined;
@@ -42,12 +46,19 @@ const OrderedListItem = (props: OrderedListItemPropsType): any => {
     props.customStyles.orderedListItemNumber :
     undefined;
 
+  let marginLeft = 0;
+  marginLeft =
+      orderedListItemCustomStyleNumber && orderedListItemCustomStyleNumber.marginLeft ?
+        props.depth * orderedListItemCustomStyleNumber.marginLeft :
+        props.depth * props.defaultMarginLeft;
+
   return (
     <View style={[styles.orderedListItemContainer, orderedListItemCustomStyleContainer]}>
       <Text
-        style={[styles.orderedListItemNumber, orderedListItemCustomStyleNumber]}
+        style={[styles.orderedListItemNumber, orderedListItemCustomStyleNumber,
+          { marginLeft }]}
       >
-        {number}{separator}
+        {counter}{separator}
       </Text>
       <DraftJsText
         {...props}
@@ -57,8 +68,9 @@ const OrderedListItem = (props: OrderedListItemPropsType): any => {
 
 OrderedListItem.defaultProps = {
   counter: 1,
-  customStyles: {},
+  depth: 0,
   separator: '.',
+  defaultMarginLeft: 8,
 };
 
 export default OrderedListItem;

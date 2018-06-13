@@ -112,6 +112,10 @@ export default function App(): any {
     contentState: data,
     customStyles,
     atomicHandler,
+    depthMargin: 32,
+    textProps: {
+      selectable: true,
+    },
   };
   const blocks = getRNDraftJSBlocks(params);
 

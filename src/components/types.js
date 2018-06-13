@@ -9,40 +9,52 @@
 export type BlockQuotePropsType = {
   type: string,
   text: string,
+  data: Object,
   customStyles?: Object,
   inlineStyles: Array<Object>,
   entityRanges: Array<Object>,
-  entityMap: Object,
+  entityMap: ?Object,
+  textProps: ?Object,
 };
 
 export type DraftJsTextPropsType = {
   type: string,
   text: string,
+  data: Object,
   customStyles?: Object,
   inlineStyles: Array<Object>,
   entityRanges: Array<Object>,
-  entityMap: Object,
+  entityMap: ?Object,
   navigate?: Function,
+  textProps: ?Object,
 };
 
 export type OrderedListItemPropsType = {
   type: string,
   text: string,
+  data: Object,
   customStyles?: Object,
   inlineStyles: Array<Object>,
   entityRanges: Array<Object>,
-  entityMap: Object,
+  entityMap: ?Object,
   counter: number,
   separator?: string,
+  depth: number,
+  defaultMarginLeft: number,
+  textProps: ?Object,
 };
 
 export type UnorderedListItemPropsType = {
   type: string,
   text: string,
+  data: Object,
   customStyles?: Object,
   inlineStyles: Array<Object>,
   entityRanges: Array<Object>,
-  entityMap: Object,
+  entityMap: ?Object,
+  depth: number,
+  defaultMarginLeft: number,
+  textProps: ?Object,
 };
 
 export type TextStyledPropsType = {
@@ -50,4 +62,5 @@ export type TextStyledPropsType = {
   text: string,
   customStyles?: Object,
   onPress?: Function,
+  lineHeight: Object,
 };

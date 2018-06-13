@@ -11,7 +11,7 @@ import {
   Platform,
 } from 'react-native';
 
-const defaultStyles = StyleSheet.create({
+const defaultStyles = (PlatformOS: string): Object => StyleSheet.create({
   paragraph: {
     lineHeight: 26,
     fontSize: 14,
@@ -77,7 +77,7 @@ const defaultStyles = StyleSheet.create({
   'code-block': {
     lineHeight: 26,
     backgroundColor: '#cecece',
-    fontFamily: Platform.OS === 'android' ? 'monospace' : 'Courier New',
+    fontFamily: PlatformOS === 'android' ? 'monospace' : 'Courier New',
     padding: 16,
   },
   blockquote: {
@@ -89,4 +89,5 @@ const defaultStyles = StyleSheet.create({
   },
 });
 
-export default defaultStyles;
+export { defaultStyles as defaultStylesForTest };
+export default defaultStyles(Platform.OS);

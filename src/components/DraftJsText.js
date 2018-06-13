@@ -7,14 +7,12 @@
 // @flow
 
 import React from 'react';
-import {
-  Text,
-} from 'react-native';
+import { Text } from 'react-native';
 
 import loadAttributes from '../loadAttributes';
 
 import defaultStyles from './defaultStyles';
-import type { DraftJsTextPropsType } from './defaultProps';
+import type { DraftJsTextPropsType } from './types';
 
 const DraftJsText = (props: DraftJsTextPropsType): any => {
   let textElements = props.text;
@@ -27,20 +25,27 @@ const DraftJsText = (props: DraftJsTextPropsType): any => {
       entityRanges: props.entityRanges,
       entityMap: props.entityMap,
       navigate: props.navigate,
+      textProps: props.textProps,
+      type: props.type,
     });
 
     const customStyle = props.customStyles ? props.customStyles[props.type] : undefined;
+    const textAlignStyle = { textAlign: props.data['text-align'] };
 
-    return (<Text
-      style={[defaultStyles[props.type], customStyle]}
-    >{textElements}</Text>);
+    return (
+      <Text
+        style={[defaultStyles[props.type], textAlignStyle, customStyle]}
+        {...props.textProps}
+      >{textElements}
+      </Text>
+    );
   }
   return null;
 };
 
 DraftJsText.defaultProps = {
   text: '',
-  customStyles: {},
+  data: {},
   inlineStyles: [],
   navigate: undefined,
 };

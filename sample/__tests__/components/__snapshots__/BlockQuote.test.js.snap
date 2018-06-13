@@ -22,7 +22,6 @@ exports[`extends a style with a customStyle 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Array [
@@ -31,6 +30,9 @@ exports[`extends a style with a customStyle 1`] = `
           "fontStyle": "italic",
           "fontWeight": "normal",
           "marginLeft": 16,
+        },
+        Object {
+          "textAlign": undefined,
         },
         Object {
           "fontSize": 18,
@@ -71,7 +73,6 @@ exports[`renders correctly with a blockquote 1`] = `
   <Text
     accessible={true}
     allowFontScaling={true}
-    disabled={false}
     ellipsizeMode="tail"
     style={
       Array [
@@ -80,6 +81,9 @@ exports[`renders correctly with a blockquote 1`] = `
           "fontStyle": "italic",
           "fontWeight": "normal",
           "marginLeft": 16,
+        },
+        Object {
+          "textAlign": undefined,
         },
         undefined,
       ]
