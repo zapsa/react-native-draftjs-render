@@ -29,7 +29,7 @@ const DraftJsText = (props: DraftJsTextPropsType): any => {
       type: props.type,
     });
 
-    const customStyle = props.customStyles ? props.customStyles[props.type] : undefined;
+    const customStyle = props.customStyles ? props.customStyles[props.type] : {};
     const textAlignStyle = { textAlign: props.data['text-align'] };
 
     return (

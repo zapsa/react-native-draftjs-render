@@ -38,7 +38,7 @@ const addTypeToSegments = (
     originalStyles.forEach((style: Object) => {
       const length = segment[0] + segment[1];
       if (length > style.offset && length <= style.offset + style.length) {
-        if (entityMap[style.key].type === 'MENTION') {
+        if (entityMap[style.key] && entityMap[style.key].type === 'MENTION') {
           types.push('mention');
           segment.push(style.key);
         } else if (isLink(style)) {
@@ -71,7 +71,7 @@ const isOverlap = (styles: Array<Object>): any => {
 };
 
 const checkSingleLinkElement = (item: Object, entityMap: Object) => {
-  if (entityMap[item.key].type === 'MENTION') {
+  if (entityMap[item.key] && entityMap[item.key].type === 'MENTION') {
     Object.assign(item, { style: 'mention' });
   } else if (isLink(item)) {
     Object.assign(item, { style: 'link' });
