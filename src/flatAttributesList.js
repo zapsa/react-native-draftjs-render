@@ -70,15 +70,17 @@ const isOverlap = (styles: Array<Object>): any => {
   return found;
 };
 
-const checkSingleLinkElement = (item: Object) => {
-  if (isLink(item)) {
+const checkSingleLinkElement = (item: Object, entityMap: Object) => {
+  if (entityMap[item.key].type === 'MENTION') {
+    Object.assign(item, { style: 'mention' });
+  } else if (isLink(item)) {
     Object.assign(item, { style: 'link' });
   }
 };
 
 const flatAttributesList = (attrsList: Array<Object>, entityMap: Object): Array<Object> => {
   if (attrsList.length === 1 || !isOverlap(attrsList)) {
-    checkSingleLinkElement(attrsList[0]);
+    checkSingleLinkElement(attrsList[0], entityMap);
     return attrsList;
   }
   const numbersList = convertStylesIntoNumbers(attrsList);
