@@ -67,7 +67,7 @@ const loadAttributes = (params: ParamsType): any => {
   );
 
   if (attributes.length) {
-    const attrs = flatAttributesList(attributes);
+    const attrs = flatAttributesList(attributes, entityMap);
 
     const defaultLineHeight =
       defaultStyles[type] && defaultStyles[type].lineHeight;

@@ -30,6 +30,7 @@ const createArrayWithSegments = (numbersList: Array<number>): Array<Array<number
 const addTypeToSegments = (
   segments: Array<Array<number>>,
   originalStyles: Array<Object>,
+  entityMap: Object,
 ): Array<Object> => {
   const objectList = [];
   segments.forEach((segment: Array<number>) => {
@@ -37,7 +38,10 @@ const addTypeToSegments = (
     originalStyles.forEach((style: Object) => {
       const length = segment[0] + segment[1];
       if (length > style.offset && length <= style.offset + style.length) {
-        if (isLink(style)) {
+        if (entityMap[style.key].type === 'MENTION') {
+          types.push('mention');
+          segment.push(style.key);
+        } else if (isLink(style)) {
           types.push('link');
           segment.push(style.key);
         } else {
@@ -72,7 +76,7 @@ const checkSingleLinkElement = (item: Object) => {
   }
 };
 
-const flatAttributesList = (attrsList: Array<Object>): Array<Object> => {
+const flatAttributesList = (attrsList: Array<Object>, entityMap: Object): Array<Object> => {
   if (attrsList.length === 1 || !isOverlap(attrsList)) {
     checkSingleLinkElement(attrsList[0]);
     return attrsList;
@@ -81,7 +85,7 @@ const flatAttributesList = (attrsList: Array<Object>): Array<Object> => {
   const sortedNumbersList = numbersList.sort(sortInteger);
   const uniqueSortedNumbersList = Array.from(new Set(sortedNumbersList));
   const segments = createArrayWithSegments(uniqueSortedNumbersList);
-  const finalObject = addTypeToSegments(segments, attrsList);
+  const finalObject = addTypeToSegments(segments, attrsList, entityMap);
   return finalObject;
 };
 
